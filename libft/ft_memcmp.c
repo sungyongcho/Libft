@@ -6,7 +6,7 @@
 /*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:27:27 by sucho             #+#    #+#             */
-/*   Updated: 2020/03/03 18:07:32 by sucho            ###   ########.fr       */
+/*   Updated: 2020/04/06 01:33:25 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-
 	const unsigned char *ptr_s1;
 	const unsigned char *ptr_s2;
 

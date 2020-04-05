@@ -6,7 +6,7 @@
 /*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 17:09:16 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/04 21:11:33 by sucho            ###   ########.fr       */
+/*   Updated: 2020/04/06 01:36:50 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char *ptr_dst;
-	const char *ptr_src;
-	size_t n;
+	char		*ptr_dst;
+	const char	*ptr_src;
+	size_t		n;
 
 	ptr_dst = dst;
 	ptr_src = src;
@@ -27,7 +27,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		while (--n)
 		{
 			if ((*ptr_dst++ = *ptr_src++) == '\0')
-				break;
+				break ;
 		}
 	}
 	if (n == 0)
