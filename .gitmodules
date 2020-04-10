@@ -1,0 +1,9 @@
+[submodule "libft-unit-test"]
+	path = libft-unit-test
+	url = git@github.com:alelievr/libft-unit-test.git
+[submodule "libft-war-machine"]
+	path = libft-war-machine
+	url = git@github.com:ska42/libft-war-machine.git
+[submodule "Libftest"]
+	path = Libftest
+	url = git@github.com:jtoty/Libftest.git
