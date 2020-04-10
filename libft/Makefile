@@ -6,7 +6,7 @@
 #    By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/08 22:03:29 by sucho             #+#    #+#              #
-#    Updated: 2020/04/04 21:09:19 by sucho            ###   ########.fr        #
+#    Updated: 2020/04/11 05:09:30 by sucho            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,7 @@ SRCS	=	ft_memset.c \
 			ft_strdup.c \
 			ft_substr.c \
 			ft_strjoin.c \
-			ft_strtrim.c \
-			ft_itoa.c
+			ft_strtrim.c
 
 OBJS	=	${SRCS:.c=.o}
 
