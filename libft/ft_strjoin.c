@@ -6,7 +6,7 @@
 /*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 21:53:03 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/06 01:35:31 by sucho            ###   ########.fr       */
+/*   Updated: 2020/04/26 04:45:16 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	len;
 	char	*result;
 
+	if (s1 == 0 && s2 == 0)
+		return (0);
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
-	result = malloc(len);
+	if (!(result = (char *)malloc(sizeof(char) * len)))
+		return (0);
 	ft_strlcpy(result, s1, len);
 	ft_strlcat(result, s2, len);
+	result[len - 1] = '\0';
 	return (result);
 }

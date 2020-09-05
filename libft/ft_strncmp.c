@@ -6,7 +6,7 @@
 /*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:25:33 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/06 01:37:13 by sucho            ###   ########.fr       */
+/*   Updated: 2020/04/22 15:03:43 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	index;
 
 	index = 0;
+	if (n == 0)
+		return (index);
 	while (*s1 && *s2 && index < n)
 	{
 		if (*s1 != *s2)

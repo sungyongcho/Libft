@@ -6,7 +6,7 @@
 /*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 14:09:14 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/06 01:39:12 by sucho            ###   ########.fr       */
+/*   Updated: 2020/04/22 20:07:36 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char		*ptr_d;
-	const char	*ptr_s;
+	unsigned char		*ptr_d;
+	unsigned const char	*ptr_s;
 
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	ptr_d = dst;
 	ptr_s = src;
 	while (n--)

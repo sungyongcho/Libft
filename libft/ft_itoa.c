@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/26 02:50:14 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/29 19:17:49 by sucho            ###   ########.fr       */
+/*   Created: 2020/04/26 00:42:17 by sucho             #+#    #+#             */
+/*   Updated: 2020/04/30 11:04:54 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char			*ft_itoa(int n)
 {
-	size_t	i;
-	size_t	size;
-	char	*result;
+	long		value;
+	size_t		count;
+	char		*result;
 
-	size = ft_strlen(s);
-	if (!(result = malloc(sizeof(char) * (size + 1))))
+	value = n;
+	if ((count = 1) && value < 0)
+		count++;
+	if (value < 0)
+		value *= -1;
+	while ((value /= 10) > 0)
+		count++;
+	if (!(result = (char *)malloc(sizeof(char) * (count + 1))))
 		return (NULL);
-	i = 0;
-	while (i < size)
+	value = (long)n * 10;
+	if (value < 0)
 	{
-		result[i] = (*f)(i, *(s + i));
-		i++;
+		result[0] = '-';
+		value *= -1;
 	}
-	result[i] = 0;
+	result[count--] = '\0';
+	if (value == 0)
+		result[count] = '0';
+	while ((value /= 10) > 0)
+		result[count--] = value % 10 + '0';
 	return (result);
 }

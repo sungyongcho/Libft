@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/01 15:27:27 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/22 14:52:10 by sucho            ###   ########.fr       */
+/*   Created: 2020/04/27 15:11:48 by sucho             #+#    #+#             */
+/*   Updated: 2020/04/27 15:26:12 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	const unsigned char *ptr_s1;
-	const unsigned char *ptr_s2;
+	t_list *new;
+	t_list *temp;
+	t_list *current;
 
-	ptr_s1 = s1;
-	ptr_s2 = s2;
-	while (n-- > 0)
+	if (lst == 0 || !(new = ft_lstnew(f(lst->content))))
+		return (NULL);
+	current = new;
+	temp = lst->next;
+	while (temp)
 	{
-		if (*ptr_s1 != *ptr_s2)
+		if (!(current->next = ft_lstnew(f(temp->content))))
 		{
-			return (*ptr_s1 - *ptr_s2);
+			ft_lstclear(&new, del);
+			return (NULL);
 		}
-		ptr_s1++;
-		ptr_s2++;
+		current = current->next;
+		temp = temp->next;
 	}
-	return (0);
+	return (new);
 }
