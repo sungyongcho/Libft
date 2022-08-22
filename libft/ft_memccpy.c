@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 14:09:14 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/22 20:07:36 by sucho            ###   ########.fr       */
+/*   Updated: 2022/08/23 01:29:30 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,11 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 	ptr_s = src;
 	while (n--)
 	{
-		if ((*ptr_d++ = *ptr_s++) == (unsigned char)c)
-			return (ptr_d);
+		*ptr_d = *ptr_s;
+		if (*ptr_d == (unsigned char)c)
+			return (++ptr_d);
+		ptr_d++;
+		ptr_s++;
 	}
 	return (NULL);
 }

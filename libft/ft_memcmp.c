@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 15:27:27 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/22 14:52:10 by sucho            ###   ########.fr       */
+/*   Updated: 2022/08/23 01:25:08 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char *ptr_s1;
-	const unsigned char *ptr_s2;
+	const unsigned char	*ptr_s1;
+	const unsigned char	*ptr_s2;
 
 	ptr_s1 = s1;
 	ptr_s2 = s2;
