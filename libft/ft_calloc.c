@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/06 02:23:32 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/06 00:53:49 by sucho            ###   ########.fr       */
+/*   Updated: 2022/08/23 01:14:43 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*result;
 
-	if (!(result = malloc(count * size)))
+	result = malloc(count * size);
+	if (!result)
 		return (0);
 	ft_memset(result, 0, size * count);
 	return (result);
