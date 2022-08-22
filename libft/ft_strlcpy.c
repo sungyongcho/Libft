@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 17:09:16 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/25 18:51:40 by sucho            ###   ########.fr       */
+/*   Updated: 2022/08/23 01:33:13 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t n;
-	size_t index_src;
+	size_t	n;
+	size_t	index_src;
 
 	if (dst == NULL && src == NULL)
 		return (0);
