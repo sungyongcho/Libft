@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 03:06:16 by sucho             #+#    #+#             */
-/*   Updated: 2020/04/27 18:58:59 by sucho            ###   ########.fr       */
+/*   Updated: 2022/08/23 23:03:20 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static size_t	pos_word(char *s, char c, size_t order)
 	return (position);
 }
 
-static char		*assign_word(char *s, char c)
+static char	*assign_word(char *s, char c)
 {
 	size_t		i;
 	size_t		len;
@@ -67,7 +67,8 @@ static char		*assign_word(char *s, char c)
 	len = 0;
 	while (*(s + len) && *(s + len) != c)
 		len++;
-	if (!(result = (char *)malloc(sizeof(char) * (len + 1))))
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!result)
 		return (0);
 	i = 0;
 	while (i < len)
@@ -76,7 +77,7 @@ static char		*assign_word(char *s, char c)
 	return (result);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	size_t		w_count;
 	size_t		i;
@@ -87,7 +88,8 @@ char			**ft_split(char const *s, char c)
 		return (NULL);
 	temp = (char *)s;
 	w_count = get_word_count(temp, c);
-	if (!(result = (char **)malloc(sizeof(char *) * (w_count + 1))))
+	result = (char **)malloc(sizeof(char *) * (w_count + 1));
+	if (!result)
 		return (0);
 	i = 0;
 	while (i < w_count)

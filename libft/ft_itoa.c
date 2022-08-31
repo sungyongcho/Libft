@@ -6,7 +6,7 @@
 /*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 00:42:17 by sucho             #+#    #+#             */
-/*   Updated: 2022/08/23 01:19:13 by sucho            ###   ########.fr       */
+/*   Updated: 2022/08/23 23:20:45 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,19 @@ char			*ft_itoa(int n)
 	char		*result;
 
 	value = n;
-	if ((count = 1) && value < 0)
-		count++;
+	count = 1;
 	if (value < 0)
-		value *= -1;
-	while ((value /= 10) > 0)
+	{
 		count++;
-	if (!(result = (char *)malloc(sizeof(char) * (count + 1))))
+		value *= -1;
+	}
+	while (value > 0)
+	{
+		count++;
+		value /= 10;
+	}
+	result = (char *)malloc(sizeof(char) * (count + 1));
+	if (!result)
 		return (NULL);
 	value = (long)n * 10;
 	if (value < 0)
@@ -36,7 +42,10 @@ char			*ft_itoa(int n)
 	result[count--] = '\0';
 	if (value == 0)
 		result[count] = '0';
-	while ((value /= 10) > 0)
+	while (value > 0)
+	{
 		result[count--] = value % 10 + '0';
+		value /= 10;
+	}
 	return (result);
 }
