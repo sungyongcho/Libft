@@ -6,14 +6,13 @@
 /*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/31 16:34:04 by sucho             #+#    #+#             */
-/*   Updated: 2022/08/31 16:34:59 by sucho            ###   ########.fr       */
+/*   Updated: 2022/08/31 16:37:29 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int,
-char*))
+void ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	return ;
 }
