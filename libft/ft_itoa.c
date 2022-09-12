@@ -6,46 +6,62 @@
 /*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/26 00:42:17 by sucho             #+#    #+#             */
-/*   Updated: 2022/08/23 23:20:45 by sucho            ###   ########.fr       */
+/*   Updated: 2022/09/13 00:08:28 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char			*ft_itoa(int n)
+static int	get_len(int n)
 {
-	long		value;
-	size_t		count;
-	char		*result;
+	int	len;
 
-	value = n;
-	count = 1;
-	if (value < 0)
+	len = 0;
+	if (n <= 0)
+		len++;
+	while (n != 0)
 	{
-		count++;
-		value *= -1;
+		n = n / 10;
+		len++;
 	}
-	while (value > 0)
+	return (len);
+}
+
+static void	fill_res(int len, int flag, int n, char *res)
+{
+	while (len > flag)
 	{
-		count++;
-		value /= 10;
+		res[len - 1] = n % 10 + '0';
+		n = n / 10;
+		len--;
 	}
-	result = (char *)malloc(sizeof(char) * (count + 1));
-	if (!result)
-		return (NULL);
-	value = (long)n * 10;
-	if (value < 0)
+}
+
+char	*ft_itoa(int n)
+{
+	char	*res;
+	int		flag;
+	int		len;
+
+	flag = 0;
+	len = get_len(n);
+	res = (char *)malloc(sizeof(char) * len + 1);
+	if (!res)
+		return (0);
+	if (n == -2147483648)
 	{
-		result[0] = '-';
-		value *= -1;
+		res[0] = '-';
+		res[1] = '2';
+		n = 147483648;
+		flag = 2;
 	}
-	result[count--] = '\0';
-	if (value == 0)
-		result[count] = '0';
-	while (value > 0)
+	if (n < 0)
 	{
-		result[count--] = value % 10 + '0';
-		value /= 10;
+		res[0] = '-';
+		flag = 1;
+		n = -n;
 	}
-	return (result);
+	fill_res(len, flag, n, res);
+	res[len] = '\0';
+	return (res);
 }
