@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sucho <sucho@student.42seoul.kr>           +#+  +:+       +#+         #
+#    By: sucho <sucho@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/08 22:03:29 by sucho             #+#    #+#              #
-#    Updated: 2020/04/27 18:03:54 by sucho            ###   ########.fr        #
+#    Updated: 2023/08/04 22:19:54 by sucho            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ SRCS		=	./ft_memset.c \
 				./ft_putnbr_fd.c \
 				./ft_itoa.c \
 				./ft_strmapi.c \
-				./ft_split.c
+				./ft_split.c \
+				./ft_striteri.c
 
 SRCS_BONUS	=	./ft_lstnew.c \
 				./ft_lstadd_front.c \
