@@ -6,7 +6,7 @@
 /*   By: sucho <sucho@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/01 17:09:16 by sucho             #+#    #+#             */
-/*   Updated: 2023/08/04 22:27:58 by sucho            ###   ########.fr       */
+/*   Updated: 2023/08/04 22:57:51 by sucho            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	n;
 	size_t	index_src;
 
-	if (dst == NULL && src == NULL)
+	if (dst == NULL || src == NULL)
 		return (0);
 	index_src = ft_strlen(src);
 	if (dstsize == 0)
