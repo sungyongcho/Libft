@@ -1,63 +1,68 @@
 /* ************************************************************************** */
 /*																			*/
 /*														:::	  ::::::::   */
-/*   ft_itoa.c										  :+:	  :+:	:+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*													+:+ +:+		 +:+	 */
 /*   By: sucho <sucho@student.42.fr>				+#+  +:+	   +#+		*/
 /*												+#+#+#+#+#+   +#+		   */
 /*   Created: 2020/04/26 00:42:17 by sucho			 #+#	#+#			 */
-/*   Updated: 2023/08/05 01:52:51 by sucho			###   ########.fr	   */
+/*   Updated: 2023/08/05 16:00:49 by sucho            ###   ########.fr       */
 /*																			*/
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_get_digits(int n)
+void	assign_nbr(char *result, int size, long nbr)
 {
-	int				i;
-	unsigned int	un;
+		if (nbr == 0)
+				result[0] = '0';
+		result[size] = '\0';
+		size--;
+		while (nbr)
+		{
+				result[size--] = nbr % 10 + '0';
+				nbr /= 10;
+		}
+}
 
-	i = 1;
-	if (n < 0)
-	{
-		un = (unsigned int)-n;
-		i++;
-	}
-	else
-		un = (unsigned int)n;
-	while (un >= 10)
-	{
-		un /= 10;
-		i++;
-	}
-	return (i);
+static int	count_size(int n)
+{
+		int	n_digits;
+		int	size;
+
+		n_digits = 0;
+		size = 0;
+		if (n == 0)
+				n_digits = 1;
+		else
+		{
+				if (n < 0)
+						size++;
+				while (n)
+				{
+						n_digits++;
+						n /= 10;
+				}
+		}
+		size += n_digits;
+		return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	int				len;
-	unsigned int	un;
+		char	*result;
+		int		size;
+		long	nbr;
 
-	len = ft_get_digits(n);
-	str = (char *)malloc(len + 1);
-	if (!str)
-		return (NULL);
-	if (n < 0)
-	{
-		str[0] = '-';
-		un = (unsigned int)-n;
-	}
-	else
-		un = (unsigned int)n;
-	str[len] = '\0';
-	while (len-- > 0)
-	{
-		if (str[len] != '-')
+		size = count_size(n);
+		nbr = (long)n;
+		result = (char *)malloc(sizeof (char) * (size + 1));
+		if (result == 0)
+				return (NULL);
+		if (nbr < 0)
 		{
-			str[len] = un % 10 + '0';
-			un /= 10;
+				result[0] = '-';
+				nbr *= -1;
 		}
-	}
-	return (str);
+		assign_nbr(result, size, nbr);
+		return (result);
 }
